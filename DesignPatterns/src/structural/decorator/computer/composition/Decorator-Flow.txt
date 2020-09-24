@@ -1,0 +1,57 @@
+The decorator design pattern allows us to dynamically add functionality and behavior to an object 
+without affecting the behavior of other existing objects in the same class. 
+
+# So there would be an decorator interface / abs class that defines some binding functionalities (Eg. Component.java)
+# Also there will be list of independent functionalities that exists independently, 
+which acts as "decorating element". There can be many such decorating elements
+Eg. UPS.java, SpecialSpeaker.java
+All the "decorating elements" must 
+	a) Have the decorator interface as its field
+	b) Initialize the decorator interface field, preferably in it's constructor
+    c) Also implement / extend the decorator interface / abs class, to override the methods of the decorator interface
+    NOTE::
+    Although we need only COMPOSITION for injecting dynamic functionality, we need to use INHERITANCE too, for 
+    overriding it's methods.
+ ========================================================================================================================================
+ |  This is essential that decorator element as well as the core element emerges out of the same superclass, for implementing			|
+ |  DECORATOR PATTERN																													|
+ |  Although there can be implementations at multiple levels																			|
+ ========================================================================================================================================
+    d) Perform operations by calling the methods on that decorator interface
+	NOTE:: As the methods of interface / abs are being used, it'd in turn make a call to the 
+    class that makes use of the interface / Abstract class (Eg. BasicComupter.java, BasicTelevision.java)
+# Lastly there would be an implementation for the interface / Abstract class, that defines core product
+  Eg. BasicComupter.java, BasicTelevision.java
+
+Now to use the decorator pattern,
+	(a) The implemented class must be mapped to the reference of the abstract class / interface
+		Eg. Component computer = new BasicComputer();
+	(b) All the decorator components that needs to be added, can be done by passing this object,
+	    to the decorator element's constructor
+	    Eg. computer = new UPS(computer);		// As all the objects emerge out of same superclass object
+
+___________________________________________________________________________________________________________________________________________________
+
+In the above Example
+The core classes
+	- BasicComputer extends Component
+	- BasicTelevision extends Component
+Similarly, the decorator elements
+	- UPS extends  Component
+	- SpecialSpeaker extends Component
+wherein, Component is the decorator interface
+
+This is an example of SINGLE LEVEL implementation of base class
+__________________________________________________________________________________________________________________________________________________
+
+In the next example
+
+The core classes
+	- BasicComputer extends Component
+	- BasicTelevision extends Component
+Similarly, the decorator elements
+	- UPS extends ComponentDecorator which in turn extends Component
+	- SpecialSpeaker extends ComponentDecorator which in turn extends Component
+wherein, Component is the decorator interface
+
+This is an example of MULTI LEVEL implementation of base class

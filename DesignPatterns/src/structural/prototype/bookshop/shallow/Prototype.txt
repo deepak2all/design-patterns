@@ -1,0 +1,22 @@
+https://www.youtube.com/watch?v=nZ76x13Nm8Q
+
+Prototype:
+Used whenever obj creation takes a lot of time (or)
+utilizes lot of memory
+
+Eg. Object creation requires fetching data from database
+
+Generally, this is done using CLONING.
+
+CLONING is of 2 types
+	# SHALLOW CLONING : There is only one object created by there are multiple references pointing to the 
+						same object
+	# DEEP CLONING : There are multiple new objects created from the existing object
+
+
+Disadvantages of shallow cloning / shallow copy
+================================================
+Whenever the primary object is changed, all the new objects created via references will also have this change,
+as they all in turn point to the same object
+
+This problem can be solved by using DEEP CLONING or DEEP COPY

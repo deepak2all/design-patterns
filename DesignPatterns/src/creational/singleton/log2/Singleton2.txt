@@ -1,0 +1,27 @@
+# a singleton class is a class that can have only one object 
+(an instance of the class) at a time
+
+Singleton's purpose is to control object creation, 
+limiting the number of objects to only one
+
+# So first restriction is imposed on constructor (by making it private)
+# As this will limit obj creation from external classes, we need to have
+an internal method, for object creation. Eg. getInstance
+# The object should create a new object, iff no obj exists (or if cond is null)
+# Also this method should be accessible to external classes (without obj creation)
+and henceforth needs to be static.
+
+# In order to prevent 2 threads to access the getInstance, we make use
+of synchronized block (which prevents concurrent access of threads).
+Also make the instance variable as volatile.
+The Java VOLATILE keyword is used to mark a Java variable as 
+"being stored in main memory".
+
+NOTE:
+=====
+Even if the volatile keyword guarantees that all reads of a volatile variable are 
+read directly from main memory, and all writes to a volatile variable are written 
+directly to main memory, there are still situations where it is not enough to 
+declare a variable "volatile". 
+
+http://tutorials.jenkov.com/java-concurrency/volatile.html#when-is-volatile-enough

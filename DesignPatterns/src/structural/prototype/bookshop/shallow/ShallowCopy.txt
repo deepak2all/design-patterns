@@ -1,0 +1,12 @@
+SHALLOW COPY doesn't create multiple objects but instead 
+create multiple references, all pointing to the same object 
+		/*
+		 *  The following are the steps involved in SHALLOW COPY
+		 *  1. Use newObj = origObj.clone(), instead of creating object using "new" keyword
+		 *     Also clone() returns an "Object"; hence case it to the existing object's class type
+		 *  2. Make sure existing object implements the MARKER INTERFACE "Cloneable"
+		 *     (as the clone() method is "protected" and henceforth isn't visible until
+		 *     the marker interface is implemented)
+		 *  3. Make sure the existing object overrides the clone() method, inside its class
+		 */
+

@@ -1,0 +1,43 @@
+USAGE:: Essentially used while building complex objects
+
+PROBLEMS ADDRESSED::
+For building a complex object, we generally have multiple args in its constructor,
+which potentially causes the below problems
+a) Programmer needs to remember the args and supply values accordingly
+b) At times, not all args are needed; but still programmer needs to key in "null" as values,
+for those arguments
+
+IMPLEMENTATION OF BUILDER PATTERN::
+Assuming Phone is the complex object (with many instance variables) that needs to be built, 
+using builder pattern,
+we come up with a builder object called PhoneBuilder such that
+(a) It has a constructor with args that represents the bare minimum mandatory fields
+(b) The rest all are managed using setters such that all the setters would
+		1) "return this" unanimously and
+		2) the return type of setters would be the "builder object" instead of void
+(c) It has one "final" method that doesn't take any inputs; however returns the complex object.
+	NOTE:: 
+	This method's complex object would have the same argument list as that of the constructor
+	of the complex object, i.e. in essence all the components have to be returned
+(d) The original complex object (although it's not used by other classes directly for object
+    building)
+(e) By the rule of thumb, it'd be preferred to set the fields used in the PhoneBuilder's 
+	constructor as "final"
+(f) The classes which intend to build complex object essentially makes use of new Builder class,
+	by supplying the mandatory args via constructor and other optional args through the setters
+	and finally calling the final method of the builder (which returns the complex object)
+	NOTE:: All these things happen with just one line of code ...
+
+EXAMPLE
+=======
+PhoneShop.java makes use of PhoneBuilder2.java, to build Phone object.
+The mandatory fields are os, processor and battery.
+The optional fields are screenSize and camera.
+getPhoneFromPhoneBuilder2 is the final method in PhoneBuilder2.java, used to construct
+complex object Phone.
+
+The one liner used for building complex object (inside PhoneShop.java) is
+
+Phone phUsingBuilder2 = new PhoneBuilder2("Android", "SnapDragon", 2100)
+								.setScreenSize(5.5).setCamera(20)
+								.getPhoneFromPhoneBuilder2();

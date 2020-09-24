@@ -1,0 +1,23 @@
+Decorator1 --> Composition
+
+1. Client.java
+	|		|
+	|		|				   		  	   Implements
+	|		2. BasicComputer.java ------  5.Component.java ----------|
+	|		(Map it to interface obj)								|
+	|																|
+	|------ 3. UPS.java (to add UPS to basic computer) -------------|
+	|		(Uses Component interface obj as arg)					|
+	|																|
+	|------ 4. Speaker.java (to add the Speakers to basic comp) ----|
+			(Uses Component interface obj as arg)
+
+NOTE:
+Speaker and UPS passes "Component" in the constructor 
+In case we make use of inheritance, we'd end up in creating diff classes
+for diff combination of items
+Eg. BasicComputerWithUPS.java, BasicComputerWithSpeakers.java,
+BasicComputerWithUPSAndSpeakers.java etc
+
+So COMPOSITION is preferred over INHERITANCE, towards reducing the number
+of classes

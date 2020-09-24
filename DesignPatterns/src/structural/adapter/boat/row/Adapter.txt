@@ -1,0 +1,10 @@
+Pirates are coming and our captain needs to escape but there is only fishing boat available. 
+We need to create an adapter that allows the captain to operate the fishing boat with his rowing boat skills.
+
+Now the Captain can use the FishingBoat to escape the pirates
+Captain captain = new Captain(new BoatAdapter());
+captain.row();
+
+Captain uses BoatAdapter which helps in transforming FishingBoat to a RowingBoat
+
+https://java-design-patterns.com/patterns/adapter/

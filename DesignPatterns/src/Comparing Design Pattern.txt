@@ -1,0 +1,20 @@
+
+1. FACTORY PATTERN vs PROTOTYPE PATTERN
+	Normally, we always use "FACTORY PATTERN" for object creation.
+	However, there are some objects whose creation takes more time or consumes a lot of memory.
+	Eg. Object creation which requires data from database
+	Only for creation of such objects, "PROTOTYPE PATTERN" needs to be used.
+	
+2. BUILDER PATTERN vs COMPOSITE PATTERN vs DECORATOR PATTERN
+	BUILDER PATTERN is used for creation of ONE COMPLEX OBJECT, which is made up of multiple parts.
+	These parts generally don't belong to any other class but is part of the ORIGINAL object itself.
+	Also since these parts aren't separate objects, there won't be any possibility of having any other
+	sub-object; so there won't be any tree-structure hierarchy, involved in the object creation.
+	COMPOSITE PATTERN is used for building of ONE COMPLEX OBJECT, which in turn comprises of several
+	SIMPLE OBJECTS, forming a tree-structure hierarchy. 
+	DECORATOR PATTERN is building some additional featured on the existing PRIMARY OBJECT, by appending it with
+	several SECONDARY OBJECTS.
+	These SECONDARY OBJECTS's features can be utilized by any number of PRIMARY OBJECTS, which is in need to append
+	these features, with it's existing features.
+	
+3. FLYWEIGHT PATTERN Vs PROTOTYPE PATTERN

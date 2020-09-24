@@ -1,0 +1,3 @@
+
+Template pattern using generics
+DocManipulator <T extends Document>

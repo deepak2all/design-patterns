@@ -1,0 +1,26 @@
+https://www.youtube.com/watch?v=Q1jZ4TI6MF4
+
+Composite pattern is used when Composite object comprises of multiple leaf objects, forming a tree structure 
+(or hierarchy)
+Composite will have 
+(a) A list to store components
+(b) A method to add components
+(c) A method to remove components
+
+Eg.
+a) Mouse and Monitor are leaf objects of composite object "Peripheral"
+b) 
+
+											Computer
+												|					
+						  ---------------------------------------------------
+						  |													|
+						Cabinet											Peripherals
+						  |													|
+				-------------------------						-----------------------------
+				|						|						|		  |			|		|
+			Motherboard				Hard-drive				Keyboard	Mouse	Monitor	  Speakers
+				|					(HDD)
+	 -------------
+	 |			 |	
+	CPU			RAM

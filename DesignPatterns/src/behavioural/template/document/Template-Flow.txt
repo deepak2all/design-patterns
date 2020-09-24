@@ -1,0 +1,21 @@
+					---------------------------------  		------------------------------------------------------
+IMPLEMENTATIONS =>	|	JsonDocument	XmlDocument	|  		|JsonDocManipulator					XmlDocManipulator|
+by extending		---------------------------------  		------------------------------------------------------
+the respective					|				|		      [Impl methods can take-in / return Json/Xml Document]
+interfaces 						|				|					|								|
+								-----------------					---------------------------------
+										|											|
+									Document(I) -------------------------	DocManipulator(A)
+																		[processFile method + other abs methods]
+																		[methods within processFile are pvt + abs methods]
+																		[Abs methods can take-in / return Document]
+																					|
+																					|
+														   							|
+														 Client---------------------|
+										DocManipulator docManipulator = new XmlDocManipulator();
+										docManipulator.processFile(new File("..."));
+										
+===================================================================================================================================										
+TEMPLATE METHOD is a behavioral design pattern that allows you to defines a skeleton of an algorithm 
+in a base class and let subclasses override the steps without changing the overall algorithm's structure.

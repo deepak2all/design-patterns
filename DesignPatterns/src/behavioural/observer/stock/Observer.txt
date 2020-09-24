@@ -1,0 +1,43 @@
+
+1. ObserverClient.java
+		|												-- 3. CurrentStockDetailsDisplay.java
+		|												|  		[update(data mod)]
+	2. StockData.java									|
+[stockPriceChanged(data mod)] <-- Observers listening --
+(This method in turn invokes							|
+the update method of the 								|
+observers, so that the 									-- 4. StatisticsStockDetailsDisplay.java
+values are passed on									   		[update(data mod)]
+to the observers)										
+
+
+DisAdv:
+=======
+Tight Coupling
+Need to modify the StockData.java
+Whenever the observers change 
+(New ones get added or old one
+gets removed)														
+
+Solution:
+=========
+a) The update(data mod) is the common method, needed within all the observers, to receive the updates.
+   Hence, this can be moved to an interface called Observer.java, which can be implemented by
+   all the observers like CurrentStockDetailsDisplay.java, StatisticsStockDetailsDisplay.java etc
+   This removes the tight-coupling inside StockData.java
+b) Similarly, in order to notify all the observers, we'd have another interface called ObserverManageAndNotify.java.
+   This interface primarily has 3 abstract methods
+   		- registerObserver, which takes in Observer as argument (in order to add it)
+   		- removeObserver, which takes in Observer as argument (in order to remove it)
+   		- notifyObserver, which doesn't take any argument (as it pertains to all the observers, unlike the other 2 methods)
+c) Coming to StockData.java, it'd implement ObserverManageAndNotify.java, for adding, removing and notifying the observers.
+   Also, StockData.java should maintain a list of Observers (e.g in an arraylist), which would be utilized in all the 
+   3 methods, of ObserverManageAndNotify.java, that's being implemented
+   		- registerObserver :: Add the observer to the list
+   		- removeObserver :: Remove observer from the list
+   		- nofifyObserver :: Will call the update method for all the observers, in the list of observers
+ d) Now, the last part is registering as observer.
+ 	This is done by all observers by passing the object of ObserverManageAndNotify, inside their constructors.
+ 	Upon this object, registerObserver is invoked.
+ 	To prevent modification of the value, we have ObserverManageAndNotify as a final interface object.
+   

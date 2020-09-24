@@ -1,0 +1,12 @@
+# a singleton class is a class that can have only one object 
+(an instance of the class) at a time
+
+Singleton's purpose is to control object creation, 
+limiting the number of objects to only one
+
+# So first restriction is imposed on constructor (by making it private)
+# As this will limit obj creation from external classes, we need to have
+an internal method, for object creation. Eg. getInstance
+# The object should create a new object, iff no obj exists (or if cond is null)
+# Also this method should be accessible to external classes (without obj creation)
+and henceforth needs to be static.

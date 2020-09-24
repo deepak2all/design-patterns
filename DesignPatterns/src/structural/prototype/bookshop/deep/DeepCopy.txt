@@ -1,0 +1,2 @@
+DEEP COPY create multiple objects 
+Then copies the required data from the existing object to the new object 

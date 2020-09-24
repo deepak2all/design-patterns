@@ -1,0 +1,39 @@
+https://www.javatpoint.com/design-patterns-in-java
+https://java-design-patterns.com/patterns/
+https://javarevisited.blogspot.com/2016/08/adapter-design-pattern-in-java-example.html
+
+1. Creational Design Pattern
+=============================
+    Factory Pattern
+    Abstract Factory Pattern
+    Singleton Pattern
+    Builder Pattern
+    Prototype Pattern
+
+2. Structural Design Pattern
+=============================
+    Proxy Pattern
+    Decorator Pattern
+    Composite Pattern : It's similar to builder pattern; However builder pattern is used to build a composite object;
+  						while composite pattern builds a component out of several objects.
+  						Composite pattern is used when Composite object comprises of multiple leaf objects, forming a
+  						tree structure.
+    Facade Pattern
+    Adapter Pattern:     Adapter pattern lets you wrap an otherwise incompatible object in an adapter to make it 
+    					 compatible with another class.
+    Bridge Pattern
+    Flyweight Pattern
+
+3. Behavioral Design Pattern
+==============================
+    Observer Pattern
+    Strategy Pattern
+    Template Pattern
+    Chain Of Responsibility Pattern
+    Command Pattern
+    Interpreter Pattern
+    Iterator Pattern
+    Mediator Pattern
+    Memento Pattern
+    State Pattern
+    Visitor Pattern

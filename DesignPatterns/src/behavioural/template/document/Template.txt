@@ -1,0 +1,32 @@
+Template pattern is mainly used when there are multiple tasks and the tasks need to happen in a particular sequence.
+For Eg. processFile method does the following, in the same sequence
+		(a) Validating the file's checksum
+		(b) Parsing file as a Document (specified)
+		(c) Updating the document (with the provided info
+		(d) Writing the Document (specified)						
+So we see the ordering is maintained as client would be able to call only the processFile method, that maintains
+the sequence. The methods inside the processFile are kept private (So that they are inaccessible, to the outside
+world).				
+
+
+1. TemplateClient.java
+		|
+		|
+		------ The class that makes use of the template
+				(Eg. JsonDocManipulator / XmlDocManipulator)
+				extends an abstract class (which outlines
+				the key functionalities)
+				Eg. DocManipulator.java 
+							|
+							|
+					DocManipulator.java 
+			(The abstract class that acts as the template
+			# The functionalities likely to change are abstract
+			# The fixed functionalities are defined)
+			
+The DocManipulator.java makes use of Document (which can be 
+either XmlDocument.java or JsonDocument.java,
+both of them extend abstract class Document.java)
+This again forms another template pattern
+
+In this example, we are using 2-levels of template patterns

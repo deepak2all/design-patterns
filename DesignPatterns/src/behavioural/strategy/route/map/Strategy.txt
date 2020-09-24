@@ -1,0 +1,17 @@
+					---------------------------------------------------------------------------------------------
+IMPLEMENTATIONS =>	|	PayByPayPal		PayByCreditCard		LeastTimeRoute	LeastCostRoute	LeastDistanceRoute	|
+by extending		---------------------------------------------------------------------------------------------
+the respective					|				|					|				|				|
+interfaces to					|				|					|				|				|
+generate						-----------------					---------------------------------
+STRATEGY								|											|
+OBJECTS								PayStrategy(I)							RouteStrategy(I)
+										|										|	|
+										|										|	|
+										-----------------------------------------	|
+														   |						|
+														Booking						|
+													(Uses both strategies			|
+													by passing them as args)		|
+														   |						|
+														 Client---------------------|

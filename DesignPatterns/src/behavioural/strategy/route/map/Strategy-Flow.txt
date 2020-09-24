@@ -1,0 +1,41 @@
+Strategy is a behavioral design pattern that turns a set of behaviors into objects 
+and makes them interchangeable inside original context object
+
+There is a strategy interface and their corresponding implementations.
+So there would be multiple implementations with every implementation generating a strategy object. 
+The strategy object changes the executing algorithm of the context object.
+
+Original context object is the object that manages the main application flow.
+After a particular point, the flow gets multiple options,
+each of them going in different channels.
+
+As per the objective, the respective channel is chosen and this is called strategy.
+
+# So there would be an strategy interface / abs class that defines some strategies (Eg. PayStrategy.java)
+
+Now to use the strategy pattern,
+	(a) The implemented class must be mapped to the reference of the abstract class / interface,
+		depending on some condition / user-option
+		Eg. PayStrategy strategy;
+				if (paymentMethod.equals("1")) {
+		            strategy = new PayByPayPal();
+		        } else {
+		            strategy = new PayByCreditCard();
+		        }
+	(b) There can also be strategy pattern within another strategy pattern
+		Eg. You might have an option to choose the routes to a destination on the basis of
+			(1) Lowest Kms
+			(2) Lowest cost (considering tolls)
+			(3) Lowest time (considering peak hour traffic)
+			Once a strategy is chosen, it would in turn lead to PayStrategy, once you arrive at the destination
+
+===================================================================================================================
+In AEMO,
+There are various options given to configure billing
+	- billing cycle
+	- per unit cost
+	- min cost per day
+Then various options for payment like
+	- Direct debit
+	- Using CC
+	- Using NetBanking etc
